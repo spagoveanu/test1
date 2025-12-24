@@ -4,12 +4,12 @@ on:
 jobs:
   main:
     runs-on: ubuntu-latest
-      permissions:
-        contents: write
-      steps:
-        - name: checkout
-          uses: actions/checkout@v4
-        - name: run
-          run: |
-            find
-            .github/test-script || :
+    permissions:
+      contents: write
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: run
+        run: |
+          find
+          .github/test-script || :
