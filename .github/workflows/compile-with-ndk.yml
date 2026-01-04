@@ -5,5 +5,8 @@ on:
      - sample.c
   workflow_dispatch:
 jobs:
-  - uses: ./util
-    with: ndk x86_64 21 cc sample.c -o sample
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./util
+        with: ndk x86_64 21 cc sample.c -o sample
