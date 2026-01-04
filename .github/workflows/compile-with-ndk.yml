@@ -8,7 +8,7 @@ jobs:
   compile:
     runs-on: ubuntu-latest
     steps:
-      - name: compile
-        uses: ./util
+      - uses: actions/checkout@v6
+      - uses: ./util
         with:
           cmd: ndk x86_64 21 cc sample.c -o sample
