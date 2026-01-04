@@ -1,5 +1,4 @@
-id: compile-with-ndk
-name: compile with the Android NDK
+name: compile-with-ndk
 on:
   push:
     paths:
