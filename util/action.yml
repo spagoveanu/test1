@@ -1,0 +1,9 @@
+name: util
+description: reusable scripts / programs
+inputs:
+  cmd:
+    required: true
+runs:
+  using: composite
+  steps:
+    run: ${{github.action_path}}/${{inputs.cmd}}
