@@ -6,6 +6,8 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: |
+    - name: ${{inputs.cmd}}
+      shell: bash
+      run: |
         PATH=${{github.action_path}}:$PATH
         ${{inputs.cmd}}
