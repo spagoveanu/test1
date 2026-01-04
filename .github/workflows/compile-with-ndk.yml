@@ -11,6 +11,6 @@ jobs:
       contents: write
   compile:
     needs: autoreconf
-    uses: turistu/odds-n-ends/.github/workflows/build-with-ndk.yml
+    uses: turistu/odds-n-ends/.github/workflows/build-with-ndk.yml@main
     with:
       ref: ${{github.ref_name}}-auto
