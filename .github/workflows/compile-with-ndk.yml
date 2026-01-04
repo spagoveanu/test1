@@ -10,6 +10,7 @@ jobs:
     permissions:
       contents: write
   compile:
+    needs: autoreconf
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
