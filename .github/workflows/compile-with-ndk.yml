@@ -11,11 +11,6 @@ jobs:
       contents: write
   compile:
     needs: autoreconf
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          ref: ${{github.ref_name}}-auto
-      - uses: turistu/odds-n-ends/util@main
-        with:
-          cmd: ndk x86_64 21 build
+    uses: turistu/odds-n-ends/.github/workflows/build-with-ndk.yml
+    with:
+      ref: ${{github.ref_name}}-auto
