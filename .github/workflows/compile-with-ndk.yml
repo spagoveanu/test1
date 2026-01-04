@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: ./util
+      - uses: turistu/odds-n-ends/util@main
         with:
-          cmd: ndk x86_64 21 cc sample.c -o sample
+          cmd: ndk x86_64 21 build

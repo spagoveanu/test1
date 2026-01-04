@@ -1,0 +1,10 @@
+CFLAGS = -Wall
+sample: @srcdir@/sample.c
+	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@
+
+.PHONY: clean distclean gitclean
+clean:
+	rm -f *.o
+distclean:
+	rm -fr Makefile configure configure~ autom4te.cache
+gitclean: distclean
