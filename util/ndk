@@ -10,7 +10,7 @@ set -e
 die(){ echo >&2 "$@"; exit 1; }
 while :; do
 	case $1 in
-	build|make) op=$1;;
+	build|make|cc) op=$1; shift; break;;
 	aarch64|armv7a|i686|x86_64) arch=$1;;
 	[1-9][0-9]|[1-9])	api=$1;;
 	r[1-9]*|*-ndk-*|*/ndk/*)	ndk=$1;;
@@ -57,6 +57,9 @@ fi
 out=${OUT:-B-android-$api-$arch}
 
 case $op in
+cc)
+	"$cc" $cflags "$@"
+	;;
 make)
 	make "AR=$ar" "CC=$cc" "STRIP=$strip" "CROSS_COMPILE=${cc%-*}" \
 		"CONFIG_EXTRA_CFLAGS=$cflags" "$@"
