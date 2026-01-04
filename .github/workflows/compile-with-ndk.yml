@@ -5,10 +5,16 @@ on:
      - sample.c
   workflow_dispatch:
 jobs:
+  autoreconf:
+    uses: turistu/odds-n-ends/.github/workflows/auto.yml@main
+    permissions:
+      contents: write
   compile:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: ${{github.ref_name}}-auto
       - uses: turistu/odds-n-ends/util@main
         with:
           cmd: ndk x86_64 21 build
